@@ -16,15 +16,17 @@ window.onload = function() {
 
 function playGame(){
   let tries = guesses.length +1 
-  if (tries >= 3){
+  if (tries <= 3){
+    var history = document.getElementById('history');
+    let numberGuess = document.getElementById('number-guess').value;
+    history.innerHTML = numberGuess
+    displayResult(numberGuess)
+    saveGuessHistory(numberGuess)
+    displayHistory()
+  }
+  else {
     gameOver()
   }
-  var history = document.getElementById('history');
-  let numberGuess = document.getElementById('number-guess').value;
-  history.innerHTML = numberGuess
-  displayResult(numberGuess)
-  saveGuessHistory(numberGuess)
-  displayHistory()
 }
 
 function displayResult(numberGuess){
@@ -56,6 +58,7 @@ function resetResultContent(){
   document.getElementById("history").innerHTML = "";
   document.getElementById("guess-card-1").innerHTML = restImage
   document.getElementById("guess-card-2").innerHTML = restImage
+  guesses = []
 }
 
 function saveGuessHistory(guess) {
@@ -90,6 +93,9 @@ function getDialog(dialogType, text){
     case "won":
       dialog = "<div class='alert alert-success' role='alert'>"
       break;
+    case "danger":
+      dialog = "<div class='alert alert-danger' role='alert'>"
+      break;  
   }
   dialog += text;
   dialog += "</div>"
@@ -111,5 +117,11 @@ function showNumberAbove(){
 function showNumberBelow(){
   const text = "Your guess is too low!"
   dialog = getDialog('warning', text)
+  document.getElementById("result").innerHTML = dialog;
+}
+
+function gameOver () {
+  const text = "Game Over Try Again!"
+  dialog = getDialog('danger', text)
   document.getElementById("result").innerHTML = dialog;
 }

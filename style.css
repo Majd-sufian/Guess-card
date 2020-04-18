@@ -30,10 +30,6 @@
   transform: rotateY(180deg);
 }
 
-.form-group{
-    padding-top: 30px;
-}
-
 .flip-card-inner {
   position: relative;
   width: 100%;
@@ -69,4 +65,20 @@
   width: 200px;
   height: 300px;   
   border-radius: 10px;
+}
+
+.hint {
+	display: flex;
+	justify-content: center;
+	color: white;
+	margin: 10px;
+	font-size: larger;
+}
+
+.hint p {
+	margin-left: 20px;
+}
+
+.hint p span {
+	color: #7b99fa;
 }
