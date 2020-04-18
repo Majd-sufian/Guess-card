@@ -1,23 +1,11 @@
 let correctNumber = getRandomNumber()
-console.log(correctNumber + "one")
+console.log(correctNumber + "number")
 
 function getRandomNumber(){
-  var randomNumber = Math.round(Math.random() * 10)
+  var randomNumber = Math.round(Math.random() * 13) +1
   return randomNumber
 }
 
-let images = {
-  1: 'img/1 d.png',
-  2: 'img/2 d.png',
-  3: 'img/3 d.png',
-  4: 'img/4 d.png',
-  5: 'img/5 d.png',
-  6: 'img/6 d.png',
-  7: 'img/7 d.png',
-  8: 'img/8 d.png',
-  9: 'img/9 d.png',
-  10: 'img/10 d.png',
-}
 
 let guesses = []
 
@@ -27,6 +15,10 @@ window.onload = function() {
 }
 
 function playGame(){
+  let tries = guesses.length +1 
+  if (tries >= 3){
+    gameOver()
+  }
   var history = document.getElementById('history');
   let numberGuess = document.getElementById('number-guess').value;
   history.innerHTML = numberGuess
