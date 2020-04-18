@@ -82,3 +82,11 @@
 .hint p span {
 	color: #7b99fa;
 }
+.list-group {
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding-left: 0;
+    margin-bottom: 0px;
+    padding-top: 25px;
+}    

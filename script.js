@@ -8,6 +8,8 @@ function getRandomNumber(){
 
 
 let guesses = []
+const winSound = new Audio('sounds/cash.mp3');
+const lossSound = new Audio('sounds/aww.mp3');
 
 window.onload = function() {
     document.getElementById("number-submit").addEventListener("click", playGame);
@@ -16,7 +18,7 @@ window.onload = function() {
 
 function playGame(){
   let tries = guesses.length +1 
-  if (tries <= 3){
+  if (tries < 3){
     var history = document.getElementById('history');
     let numberGuess = document.getElementById('number-guess').value;
     history.innerHTML = numberGuess
@@ -106,6 +108,7 @@ function showYouWon(){
   const text = "Awesome job, you got it!"
   dialog = getDialog('won', text)
   document.getElementById("result").innerHTML = dialog;
+  winSound.play()
 }
 
 function showNumberAbove(){
@@ -124,4 +127,5 @@ function gameOver () {
   const text = "Game Over Try Again!"
   dialog = getDialog('danger', text)
   document.getElementById("result").innerHTML = dialog;
+  lossSound.play()
 }
