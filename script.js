@@ -128,4 +128,5 @@ function gameOver () {
   dialog = getDialog('danger', text)
   document.getElementById("result").innerHTML = dialog;
   lossSound.play()
+  let correctNumber = getRandomNumber()
 }
